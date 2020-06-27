@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { useLazyQuery, useMutation } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
+import { useMutation } from '@apollo/react-hooks';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import TextField from '@material-ui/core/TextField';

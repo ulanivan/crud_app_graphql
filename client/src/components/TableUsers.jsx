@@ -37,12 +37,12 @@ export const TableUsers = () => {
 			</TableRow>
 		</TableHead>
 		<TableBody>
-			{allUsers.map((row) => (
-				<TableRow style={{cursor: 'pointer'}} onClick={() => getUser(row)} hover={true} key={row.name}>
+			{allUsers.map((user) => (
+				<TableRow style={{cursor: 'pointer'}} onClick={() => getUser(user)} hover={true} key={user.name}>
 					<TableCell component="th" scope="row">
-						{row.name}
+						{user.name}
 					</TableCell>
-					<TableCell align="center">{row.email}</TableCell>
+					<TableCell align="center">{user.email}</TableCell>
 				</TableRow>
 			))}
 		</TableBody>

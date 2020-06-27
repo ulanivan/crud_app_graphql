@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
@@ -13,6 +13,12 @@ import UpdateUser from '../queries/UpdateUser';
 export const UserInfo = ({ userInfoVisible, setUserInfoVisible, user }) => {
 	const [ userName, setUserName ] = useState(user.name);
 	const [ userEmail, setUserEmail ] = useState(user.email);
+	
+	useEffect(() => {
+		setUserName(user.name);
+		setUserEmail(user.email);
+	}, [user])
+
 	const [ deleteUser ] = useMutation(DeleteUser, {
 		variables: {
 			id: user.id
@@ -49,7 +55,7 @@ export const UserInfo = ({ userInfoVisible, setUserInfoVisible, user }) => {
 						<TextField
 							value={userEmail}
 							margin="dense"
-							id="name"
+							id="email"
 							label="Email Address"
 							type="email"
 							onChange={(e) => setUserEmail(e.target.value)}
